@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Documents</title>
+    <link rel="stylesheet" href="doc.css">
+</head>
+<body>
+    <div class="container">
+        <h1>दस्तावेज़ अपलोड करें</h1>
+
+        <!-- पासपोर्ट साइज़ फ़ोटो अपलोड करें -->
+        <div class="upload-section">
+        <label class="upload-label">अपना पासपोर्ट साइज़ फ़ोटो अपलोड करें</label>
+        <input type="file" id="photoUpload" class="file-input" accept="image/*">
+        <label for="photoUpload" class="file-upload-btn">फ़ाइल चुनें</label>
+        <div id="photoFileName" class="file-name"></div>
+        </div>
+        
+        <!-- आईडी प्रूफ़ अपलोड करें -->
+        <div class="upload-section">
+        <label class="upload-label">एक वैध आईडी प्रूफ़ अपलोड करें</label>
+        <input type="file" id="idProofUpload" class="file-input" accept="application/pdf,image/*">
+        <label for="idProofUpload" class="file-upload-btn">फ़ाइल चुनें</label>
+        <div id="idProofFileName" class="file-name"></div>
+        </div>
+        
+        <!-- पता प्रमाण अपलोड करें -->
+        <div class="upload-section">
+        <label class="upload-label">मान्य पता प्रमाण अपलोड करें</label>
+        <input type="file" id="addressProofUpload" class="file-input" accept="application/pdf,image/*">
+        <label for="addressProofUpload" class="file-upload-btn">फ़ाइल चुनें</label>
+            <div id="addressProofFileName" class="file-name"></div>
+        </div>
+
+        <!-- Continue Button -->
+        <a href="home.html"><button id="continueBtn" class="continue-btn" disabled>जारी रखें</button></a>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="error-message"></div>
+    </div>
+
+    <script src="script1.js"></script>
+</body>
+</html>

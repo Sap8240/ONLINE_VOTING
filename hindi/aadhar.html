@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register with Aadhar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 120px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        input::placeholder{ font-size: 70%;
+        }
+        .title {
+            color: #1a237e;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #2527b3;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .aadhar-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            
+        }
+
+        .aadhar-input {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .aadhar-input:focus {
+            outline: none;
+            border-color: #3f51b5;
+        }
+
+        .note {
+            color: #666;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .primary-btn {
+            background-color: #3f51b5;
+            color: white;
+            padding: 12px;
+            border: none;
+            width: 100%;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .primary-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        .secondary-btn {
+            background: rgba(12, 81, 211, 0.952);
+            color: #ffffff;
+            border: 2px solid #3f51b5;
+            padding: 10px;
+            width: 100%;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .digilocker-link {
+            text-align: center;
+            color: #3f51b5;
+            text-decoration: none;
+            margin-top: 15px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">आधार के साथ रजिस्टर करें</h1>
+        <p class="subtitle">सरकारी प्रमाण सत्यापित करें</p>
+        
+        <form class="aadhar-form" id="aadharForm">
+            <div class="input-group">
+                <label for="aadhar-number" style="text-align: center; color: #666; margin-bottom: 5px;">
+                    इसके लिए कृपया अपना आधार कार्ड नंबर दर्ज करें
+                    पंजीकरण प्रक्रिया।<br> एक वन टाइम पासवर्ड
+                    (ओटीपी) पुष्टि के लिए आपको भेजा जाएगा
+                </label>
+                <input 
+                    type="text" 
+                    id="aadhar-number" 
+                    class="aadhar-input" 
+                    placeholder="अपना 12 अंकों का आधार कार्ड नंबर दर्ज करें"
+                    maxlength="14"
+                    pattern="\d{4}-\d{4}-\d{4}"
+                    required
+                >
+                <p class="note">उदाहरण: 1234-5678-9101</p>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="primary-btn" id="submitBtn" disabled>जमा करना</button>
+                <button type="button" class="secondary-btn" onclick="window.location.href='voterid.html'">मतदाता पहचान पत्र के लिए पंजीकरण करें</button>
+            </div>
+        </form>
+
+        <a href="https://accounts.digilocker.gov.in/signin/smart_v2/45749b5d531ecdae4bc477bc92e713354a03bcc365dd59c67f52adcabdde6ccb--en" class="digilocker-link">डिजिलॉकर से आयात करें</a>
+    </div>
+
+    <script>
+        const aadharInput = document.getElementById('aadhar-number');
+        const submitBtn = document.getElementById('submitBtn');
+        const aadharForm = document.getElementById('aadharForm');
+
+        // Auto-format Aadhar number
+        aadharInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/-/g, '');
+            if (value.length > 12) value = value.substring(0, 12);
+            
+            let formatted = '';
+            for (let i = 0; i < value.length; i++) {
+                if (i > 0 && i % 4 === 0) formatted += '-';
+                formatted += value[i];
+            }
+            e.target.value = formatted;
+
+            // Enable submit button only if 12 digits are entered
+            const digitsOnly = value.replace(/\D/g, '');
+            submitBtn.disabled = digitsOnly.length !== 12;
+        });
+
+        // Form submission handler
+        aadharForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const aadharNumber = aadharInput.value.replace(/-/g, '');
+
+            if (aadharNumber.length !== 12) {
+                alert('Please enter a valid 12-digit Aadhar number');
+                return;
+            }
+
+            // Simulate OTP sending
+            alert('OTP sent to registered mobile number');
+
+            // Redirect to doc.html after successful validation
+            window.location.href = 'doc.html';
+        });
+    </script>
+</body>
+</html>

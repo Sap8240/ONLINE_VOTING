@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Candidates - Parliamentary Elections 2024</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(24, 76, 187, 0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .candidate-list {
+            list-style: none;
+            padding: 0;
+        }
+        .candidate-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            font-weight: 600;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            background-color: #adccfa;
+            border-bottom: 1px solid #ffffff;
+        }
+        .candidate-info {
+            display: flex;
+            align-items: center;
+        }
+        .party-logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .select-button {
+            padding: 15px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            margin-left: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .select-button.selected {
+            background-color: #28a745;
+        }
+        .confirm-button {
+            padding: 20px 20px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 20px;
+            border: none;
+            width:100%;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        #par{
+            width:100%;
+            margin-left:0%;
+            margin-right:0%;
+        }
+        .confirm-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img id="par" src ="image.png">
+        <h1>उम्मीदवारों की सूची</h1>
+        <h2>संसदीय चुनाव - 2026</h2>
+        <h3>उम्मीदवार</h3>
+
+        <ul class="candidate-list" id="candidateList">
+            <li class="candidate-item">
+                <div class="candidate-info">
+                    <img src="logo_bjp.png" alt="BJP Logo" class="party-logo">
+                    <span>नरेंद्र मोदी - भारतीय जनता पार्टी</span>
+</div>
+<button class="select-button" data-candidate="नरेंद्र मोदी">चुनें</button>
+</li>
+<li class="candidate-item">
+<div class="candidate-info">
+<img src="logo_inc.png" alt="INC Logo" class="party-logo">
+<span>अजय राय - भारतीय राष्ट्रीय कांग्रेस</span>
+</div>
+<button class="select-button" data-candidate="अजय राय">चुनें</button>
+</li>
+<li class="candidate-item">
+<div class="candidate-info">
+<img src="logo_bsp.png" alt="BSP Logo" class="party-logo">
+<span>अथर जमाल लारी - बहुजन समाज पार्टी</span>
+</div>
+<button class="select-button" data-candidate="अथर जमाल लारी">चुनें</button>
+</li>
+<li class="candidate-item">
+<div class="candidate-info">
+<img src="logo_ytp.png" alt="YTP Logo" class="party-logo">
+<span>कोलीसेट्टी शिव कुमार - योग तुलसी पार्टी</span>
+</div>
+<button class="select-button" data-candidate="कोलीसेट्टी शिव कुमार">चुनें</button>
+</li>
+<li class="candidate-item">
+<div class="candidate-info">
+<img src='logo_adk.png' alt='ADK लोगो' वर्ग='पार्टी-लोगो'>
+ <span>गगन प्रकाश यादव - अगना दल (कमेरावाड़ी)</span>
+ </div>
+                <button class="select-button" data-candidate="Gagan Prakash Yadav">चुनें</button>
+            </li>
+        </ul>
+
+        <a href="details.html"><button class="confirm-button" id="confirmButton" disabled>पुष्टि करना</button></a>
+    </div>
+
+    <script>
+        const candidateList = document.getElementById('candidateList');
+        const confirmButton = document.getElementById('confirmButton');
+        let selectedCandidate = null;
+
+        candidateList.addEventListener('click', function(event) {
+            if (event.target.classList.contains('select-button')) {
+                // Deselect all buttons
+                document.querySelectorAll('.select-button').forEach(button => {
+                    button.classList.remove('selected');
+                    button.textContent = 'Select';
+                });
+
+                // Select the clicked button
+                event.target.classList.add('selected');
+                event.target.textContent = 'Selected';
+                selectedCandidate = event.target.getAttribute('data-candidate');
+
+                // Enable the Confirm button
+                confirmButton.disabled = false;
+            }
+        });
+
+        confirmButton.addEventListener('click', function() {
+            if (selectedCandidate) {
+                alert(`You have confirmed your selection: ${selectedCandidate}`);
+            }
+        });
+    </script>
+
+</body>
+</html>

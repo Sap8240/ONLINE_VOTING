@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    display: flex;
+    
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    width: 90%;
+    
+    max-width: 500px;
+    text-align: center;
+    margin-bottom: 20pc;
+}
+
+h1 {
+    color: #424dc5;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.user-info {
+    margin-bottom: 20px;
+    background-color: #1a237e;
+    color: #e8f5e9;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: left;
+    font-size: 18px;
+}
+
+.user-info p {
+    margin: 5px 0;
+    
+}
+
+.status-section {
+    background-color: #e8f5e9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.status-section h2 {
+    margin: 0;
+    color: #2e7d32;
+}
+
+.status-section p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.countdown {
+    font-size: 24px;
+    font-weight: bold;
+    color: #d32f2f;
+    margin: 10px 0;
+}
+
+.info-section {
+    margin-bottom: 20px;
+}
+
+.info-section h3 {
+    color: #1a237e;
+    margin-bottom: 10px;
+}
+
+.info-section p {
+    color: #666;
+    margin: 5px 0;
+}
+
+.info-section a {
+    color: #3f51b5;
+    text-decoration: none;
+}
+
+.info-section a:hover {
+    text-decoration: underline;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 2px solid #3f51b5;
+}
+
+.navigation button {
+    background-color: #3f51b5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.navigation button:hover {
+    background-color: #303f9f;
+}
