@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Language</title>
+    <link rel="stylesheet" href="lang.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="head">Select Language</h1>
+        <input type="search" placeholder="Search your Language" class="instruction" id="searchInput">
+        
+        <div class="language-list" id="languageList">
+            <button class="language-option" data-url="english/coderule.html">
+                <span class="language-name">English</span>
+                <span class="language-code">(English)</span>
+            </button>
+            <button class="language-option" data-url="hindi/coderule.html">
+                <span class="language-name">Hindi</span>
+                <span class="language-code">(Ret)</span>
+            </button>
+            <!-- Add data-url attributes for other languages as needed -->
+            <button class="language-option">
+                <span class="language-name">Gujarati</span>
+                <span class="language-code">(q'qxu'd)</span>
+            </button>
+            <button class="language-option">
+                <span class="language-name">Bengali</span>
+                <span class="language-code">(qrstri)</span>
+            </button>
+            <button class="language-option">
+                <span class="language-name">Tamil</span>
+                <span class="language-code">(gcloijp)</span>
+            </button>
+            <button class="language-option">
+                <span class="language-name">Telugu</span>
+                <span class="language-code">(seoxo)</span>
+            </button>
+            <button class="language-option">
+                <span class="language-name">Kannada</span>
+                <span class="language-code">(e$q'a)</span>
+            </button>
+            <button class="language-option">
+                <span class="language-name">Malayalam</span>
+                <span class="language-code">(aeixoo9e)</span>
+            </button>
+        </div>
+        <div class="footer">
+            <button class="confirm-btn" disabled>Confirm & Proceed</button>
+        </div>
+    </div>
+
+    <script>
+        const languageOptions = document.querySelectorAll('.language-option');
+        const confirmBtn = document.querySelector('.confirm-btn');
+        const searchInput = document.querySelector('#searchInput');
+        let selectedUrl = '';
+
+        languageOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                languageOptions.forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                confirmBtn.disabled = false;
+                selectedUrl = this.dataset.url || '';
+            });
+        });
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            languageOptions.forEach(option => {
+                const text = option.textContent.toLowerCase();
+                option.style.display = text.includes(searchTerm) ? 'block' : 'none';
+            });
+        });
+
+        confirmBtn.addEventListener('click', function() {
+            if (selectedUrl) {
+                window.location.href = selectedUrl;
+            }
+        });
+    </script>
+</body>
+</html>

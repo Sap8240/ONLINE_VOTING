@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoteEasy - Digital Democracy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9933 0%, #ffffff 50%, #138808 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #ff9933, #138808);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #138808;
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #ff9933, #138808);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #444;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            background: linear-gradient(45deg, #ff9933, #138808);
+            border: none;
+            border-radius: 30px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transition: all 0.5s ease;
+        }
+
+        .cta-button:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+            height: 600px;
+        }
+
+        .animated-india {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('india-silhouette.png') no-repeat center;
+            background-size: contain;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .stats-ticker {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(19, 136, 8, 0.9);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-around;
+            backdrop-filter: blur(5px);
+        }
+
+        .read-more {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .expand-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .expand-card:hover {
+            transform: translateY(-10px);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">VOTEEASY</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="#login">Login</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Digital Democracy<br>for New India</h1>
+            <p>Empowering every citizen with secure, accessible, and modern voting solutions. Join the movement to shape India's future!</p>
+            <a href="language.html"><button class="cta-button">Start Voting</button></a>
+        </div>
+        <div class="hero-image">
+            <div class="animated-india"></div>
+        </div>
+    </section>
+
+    <div class="stats-ticker">
+        <div>📈 1M+ Votes Cast</div>
+        <div>🔒 Military-grade Security</div>
+        <div>🌐 22+ Languages Supported</div>
+    </div>
+
+    <section class="read-more">
+        <div class="expand-card">
+            <h2>Creating a Better India</h2>
+            <p>Discover how technology is transforming democracy...</p>
+        </div>
+    </section>
+
+    <script>
+        // Add interactive animations
+        document.querySelector('.cta-button').addEventListener('click', function() {
+            this.classList.add('clicked');
+            setTimeout(() => this.classList.remove('clicked'), 500);
+        });
+
+        // Parallax effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.querySelector('.animated-india').style.transform = 
+                `translateY(${scrolled * 0.2}px)`;
+        });
+
+        // Card expansion
+        document.querySelector('.expand-card').addEventListener('click', function() {
+            this.classList.toggle('expanded');
+        });
+    </script>
+</body>
+</html>
