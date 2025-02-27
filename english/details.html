@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Profile</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #1a237e;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        .candidate-photo {
+            display: block;
+            margin: 0 auto;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #3f51b5;
+        }
+
+        .candidate-info {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .slogan-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .slogan-list li {
+            background-color: #f9f9f9;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .slogan-list li strong {
+            color: #3f51b5;
+        }
+
+        .confirm-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .confirm-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 22px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            .candidate-photo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .candidate-info {
+                font-size: 14px;
+            }
+
+            .slogan-list li {
+                font-size: 13px;
+                padding: 12px;
+            }
+
+            .confirm-button {
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Candidate Photo -->
+        <img src="image.png" alt="Candidate Photo" class="candidate-photo">
+
+        <!-- Candidate Name -->
+        <h1>Narendra Modi</h1>
+
+        <!-- Candidate Description -->
+        <p class="candidate-info">
+            Narendra Modi is a dedicated public servant with over 10 years of experience in community development. 
+            He is committed to creating a better future for all citizens through innovative policies and inclusive growth.
+        </p>
+
+        <!-- Proposed Slogans -->
+        <h2>Proposed Slogans</h2>
+        <ul class="slogan-list">
+            <li><strong>Empowerment:</strong> "Empowering every citizen to achieve their dreams."</li>
+            <li><strong>Unity:</strong> "Together, we can build a stronger and more united community."</li>
+            <li><strong>Innovation:</strong> "Innovative solutions for a brighter tomorrow."</li>
+            <li><strong>Sustainability:</strong> "Sustainable development for a greener future."</li>
+            <li><strong>Equality:</strong> "Equal opportunities for all, regardless of background."</li>
+        </ul>
+
+        <!-- Confirm Vote Button -->
+        <button class="confirm-button" id="confirmButton">Confirm Vote</button>
+    </div>
+
+    <script>
+        // Function to generate a unique vote ID
+        function generateVoteId() {
+            const timestamp = Date.now(); // Get current timestamp
+            const randomNum = Math.floor(Math.random() * 10000); // Random number for uniqueness
+            return `VOTE-${timestamp}-${randomNum}`;
+        }
+
+        // Confirm Vote Button Logic
+        const confirmButton = document.getElementById('confirmButton');
+        confirmButton.addEventListener('click', function() {
+            // Show confirmation dialog
+            const isConfirmed = confirm("Are you sure you want to cast your vote for John Doe?");
+            
+            if (isConfirmed) {
+                // Generate a unique vote ID
+                const voteId = generateVoteId();
+
+                // Simulate recording the vote (replace with actual backend call)
+                alert(`Your vote has been recorded successfully!\nVote ID: ${voteId}`);
+
+                // Disable the button after voting
+                confirmButton.disabled = true;
+                confirmButton.textContent = "Vote Casted";
+                confirmButton.style.backgroundColor = "#cccccc";
+            } else {
+                alert("Vote not casted. Please confirm to proceed.");
+            }
+        });
+    </script>
+</body>
+</html>

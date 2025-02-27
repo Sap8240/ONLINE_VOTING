@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Documents</title>
+    <link rel="stylesheet" href="doc.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Documents</h1>
+        
+        <!-- Passport Size Photo Upload -->
+        <div class="upload-section">
+            <label class="upload-label">Upload your passport size photo</label>
+            <input type="file" id="photoUpload" class="file-input" accept="image/*">
+            <label for="photoUpload" class="file-upload-btn">Choose File</label>
+            <div id="photoFileName" class="file-name"></div>
+        </div>
+
+        <!-- ID Proof Upload -->
+        <div class="upload-section">
+            <label class="upload-label">Upload a valid ID Proof</label>
+            <input type="file" id="idProofUpload" class="file-input" accept="application/pdf,image/*">
+            <label for="idProofUpload" class="file-upload-btn">Choose File</label>
+            <div id="idProofFileName" class="file-name"></div>
+        </div>
+
+        <!-- Address Proof Upload -->
+        <div class="upload-section">
+            <label class="upload-label">Upload a valid address proof</label>
+            <input type="file" id="addressProofUpload" class="file-input" accept="application/pdf,image/*">
+            <label for="addressProofUpload" class="file-upload-btn">Choose File</label>
+            <div id="addressProofFileName" class="file-name"></div>
+        </div>
+
+        <!-- Continue Button -->
+        <a href="home.html"><button id="continueBtn" class="continue-btn" disabled>Continue to MyVote</button></a>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="error-message"></div>
+    </div>
+
+    <script src="script1.js"></script>
+</body>
+</html>
